@@ -129,14 +129,24 @@
     [self userRequestsArticle:idx];
 }
 
-- (IBAction)userRequestsToReadArticle:(id)sender
+//- (IBAction)userRequestsToReadArticle:(id)sender
+//{
+//    NSLog(@"User requesting to read article");
+//    // instead of presenting this in Storyboard, we're doing it in code
+//    ArticleViewController *articleViewController = [[ArticleViewController alloc] initWithNibName:@"ArticleViewController" bundle:[NSBundle mainBundle]];
+//    articleViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+//    articleViewController.currentArticleUrlString = entryUrlString;
+//    [self presentModalViewController:articleViewController animated:YES];
+//}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"User requesting to read article");
-    // instead of presenting this in Storyboard, we're doing it in code
-    ArticleViewController *articleViewController = [[ArticleViewController alloc] initWithNibName:@"ArticleViewController" bundle:[NSBundle mainBundle]];
-    articleViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    articleViewController.currentArticleUrlString = entryUrlString;
-    [self presentModalViewController:articleViewController animated:YES];
+    NSLog(@"prepareForSegue");
+    
+    if ([[segue identifier] isEqualToString:@"toModal"]) {
+        ArticleViewController *articleViewController = [segue destinationViewController];
+        articleViewController.currentArticleUrlString = entryUrlString;
+    }
 }
 
 @end
