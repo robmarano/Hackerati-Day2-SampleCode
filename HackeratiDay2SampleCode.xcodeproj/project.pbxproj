@@ -27,11 +27,11 @@
 		9C68F75915DA054D00CB1A52 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C68F75815DA054D00CB1A52 /* SystemConfiguration.framework */; };
 		9C68F75B15DA055C00CB1A52 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C68F75A15DA055C00CB1A52 /* libxml2.dylib */; };
 		9C68F75D15DA056600CB1A52 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C68F75C15DA056600CB1A52 /* QuartzCore.framework */; };
-		9C68F7B315DA0A2500CB1A52 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C68F7AA15DA082700CB1A52 /* libRestKit.a */; };
 		D4A20D5015DAB95A00E22A2E /* SplashScreenNewsReader.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A20D4F15DAB95A00E22A2E /* SplashScreenNewsReader.png */; };
 		D4A20D5215DACA9200E22A2E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A20D5115DACA9200E22A2E /* Default.png */; };
 		D4A20D5515DACBF400E22A2E /* ArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A20D5415DACBF400E22A2E /* ArticleViewController.m */; };
 		D4A20D5715DAD81000E22A2E /* ArticleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A20D5615DAD81000E22A2E /* ArticleViewController.xib */; };
+		D4C40CF515DD6B2900A8B3AB /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C40CEA15DD6AA600A8B3AB /* libRestKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,40 +42,47 @@
 			remoteGlobalIDString = 9C68F70115DA042400CB1A52;
 			remoteInfo = HackeratiDay2SampleCode;
 		};
-		9C68F7A915DA082700CB1A52 /* PBXContainerItemProxy */ = {
+		D4C40CE915DD6AA600A8B3AB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9C68F79E15DA082700CB1A52 /* RestKit.xcodeproj */;
+			containerPortal = D4C40CDE15DD6AA500A8B3AB /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25160D1614564E810060A5C5;
 			remoteInfo = RestKit;
 		};
-		9C68F7AB15DA082700CB1A52 /* PBXContainerItemProxy */ = {
+		D4C40CEB15DD6AA600A8B3AB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9C68F79E15DA082700CB1A52 /* RestKit.xcodeproj */;
+			containerPortal = D4C40CDE15DD6AA500A8B3AB /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25160D2614564E820060A5C5;
 			remoteInfo = RestKitTests;
 		};
-		9C68F7AD15DA082700CB1A52 /* PBXContainerItemProxy */ = {
+		D4C40CED15DD6AA600A8B3AB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9C68F79E15DA082700CB1A52 /* RestKit.xcodeproj */;
+			containerPortal = D4C40CDE15DD6AA500A8B3AB /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25160E62145651060060A5C5;
 			remoteInfo = RestKitFramework;
 		};
-		9C68F7AF15DA082700CB1A52 /* PBXContainerItemProxy */ = {
+		D4C40CEF15DD6AA600A8B3AB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9C68F79E15DA082700CB1A52 /* RestKit.xcodeproj */;
+			containerPortal = D4C40CDE15DD6AA500A8B3AB /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25160E78145651060060A5C5;
 			remoteInfo = RestKitFrameworkTests;
 		};
-		9C68F7B115DA082700CB1A52 /* PBXContainerItemProxy */ = {
+		D4C40CF115DD6AA600A8B3AB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9C68F79E15DA082700CB1A52 /* RestKit.xcodeproj */;
+			containerPortal = D4C40CDE15DD6AA500A8B3AB /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 259C301615128079003066A2;
 			remoteInfo = RestKitResources;
+		};
+		D4C40CF315DD6AEF00A8B3AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4C40CDE15DD6AA500A8B3AB /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -106,12 +113,12 @@
 		9C68F75815DA054D00CB1A52 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9C68F75A15DA055C00CB1A52 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		9C68F75C15DA056600CB1A52 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		9C68F79E15DA082700CB1A52 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = "lib/RestKit-RestKit-f11a538/RestKit.xcodeproj"; sourceTree = "<group>"; };
 		D4A20D4F15DAB95A00E22A2E /* SplashScreenNewsReader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreenNewsReader.png; sourceTree = "<group>"; };
 		D4A20D5115DACA9200E22A2E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		D4A20D5315DACBF400E22A2E /* ArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleViewController.h; sourceTree = "<group>"; };
 		D4A20D5415DACBF400E22A2E /* ArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleViewController.m; sourceTree = "<group>"; };
 		D4A20D5615DAD81000E22A2E /* ArticleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleViewController.xib; sourceTree = "<group>"; };
+		D4C40CDE15DD6AA500A8B3AB /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C68F7B315DA0A2500CB1A52 /* libRestKit.a in Frameworks */,
+				D4C40CF515DD6B2900A8B3AB /* libRestKit.a in Frameworks */,
 				9C68F75D15DA056600CB1A52 /* QuartzCore.framework in Frameworks */,
 				9C68F75B15DA055C00CB1A52 /* libxml2.dylib in Frameworks */,
 				9C68F75915DA054D00CB1A52 /* SystemConfiguration.framework in Frameworks */,
@@ -149,8 +156,8 @@
 		9C68F6F715DA042400CB1A52 = {
 			isa = PBXGroup;
 			children = (
+				D4C40CDE15DD6AA500A8B3AB /* RestKit.xcodeproj */,
 				D4A20D5115DACA9200E22A2E /* Default.png */,
-				9C68F79E15DA082700CB1A52 /* RestKit.xcodeproj */,
 				9C68F70C15DA042400CB1A52 /* HackeratiDay2SampleCode */,
 				9C68F72A15DA042500CB1A52 /* HackeratiDay2SampleCodeTests */,
 				9C68F70515DA042400CB1A52 /* Frameworks */,
@@ -232,14 +239,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		9C68F79F15DA082700CB1A52 /* Products */ = {
+		D4C40CDF15DD6AA500A8B3AB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9C68F7AA15DA082700CB1A52 /* libRestKit.a */,
-				9C68F7AC15DA082700CB1A52 /* RestKitTests.octest */,
-				9C68F7AE15DA082700CB1A52 /* RestKit.framework */,
-				9C68F7B015DA082700CB1A52 /* RestKitFrameworkTests.octest */,
-				9C68F7B215DA082700CB1A52 /* RestKitResources.bundle */,
+				D4C40CEA15DD6AA600A8B3AB /* libRestKit.a */,
+				D4C40CEC15DD6AA600A8B3AB /* RestKitTests.octest */,
+				D4C40CEE15DD6AA600A8B3AB /* RestKit.framework */,
+				D4C40CF015DD6AA600A8B3AB /* RestKitFrameworkTests.octest */,
+				D4C40CF215DD6AA600A8B3AB /* RestKitResources.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -258,6 +265,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				D4C40CF415DD6AEF00A8B3AB /* PBXTargetDependency */,
 			);
 			name = HackeratiDay2SampleCode;
 			productName = HackeratiDay2SampleCode;
@@ -304,8 +312,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 9C68F79F15DA082700CB1A52 /* Products */;
-					ProjectRef = 9C68F79E15DA082700CB1A52 /* RestKit.xcodeproj */;
+					ProductGroup = D4C40CDF15DD6AA500A8B3AB /* Products */;
+					ProjectRef = D4C40CDE15DD6AA500A8B3AB /* RestKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -317,39 +325,39 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		9C68F7AA15DA082700CB1A52 /* libRestKit.a */ = {
+		D4C40CEA15DD6AA600A8B3AB /* libRestKit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRestKit.a;
-			remoteRef = 9C68F7A915DA082700CB1A52 /* PBXContainerItemProxy */;
+			remoteRef = D4C40CE915DD6AA600A8B3AB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9C68F7AC15DA082700CB1A52 /* RestKitTests.octest */ = {
+		D4C40CEC15DD6AA600A8B3AB /* RestKitTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = RestKitTests.octest;
-			remoteRef = 9C68F7AB15DA082700CB1A52 /* PBXContainerItemProxy */;
+			remoteRef = D4C40CEB15DD6AA600A8B3AB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9C68F7AE15DA082700CB1A52 /* RestKit.framework */ = {
+		D4C40CEE15DD6AA600A8B3AB /* RestKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = RestKit.framework;
-			remoteRef = 9C68F7AD15DA082700CB1A52 /* PBXContainerItemProxy */;
+			remoteRef = D4C40CED15DD6AA600A8B3AB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9C68F7B015DA082700CB1A52 /* RestKitFrameworkTests.octest */ = {
+		D4C40CF015DD6AA600A8B3AB /* RestKitFrameworkTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = RestKitFrameworkTests.octest;
-			remoteRef = 9C68F7AF15DA082700CB1A52 /* PBXContainerItemProxy */;
+			remoteRef = D4C40CEF15DD6AA600A8B3AB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9C68F7B215DA082700CB1A52 /* RestKitResources.bundle */ = {
+		D4C40CF215DD6AA600A8B3AB /* RestKitResources.bundle */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = RestKitResources.bundle;
-			remoteRef = 9C68F7B115DA082700CB1A52 /* PBXContainerItemProxy */;
+			remoteRef = D4C40CF115DD6AA600A8B3AB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -420,6 +428,11 @@
 			isa = PBXTargetDependency;
 			target = 9C68F70115DA042400CB1A52 /* HackeratiDay2SampleCode */;
 			targetProxy = 9C68F72815DA042500CB1A52 /* PBXContainerItemProxy */;
+		};
+		D4C40CF415DD6AEF00A8B3AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = D4C40CF315DD6AEF00A8B3AB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -503,6 +516,10 @@
 		9C68F73615DA042500CB1A52 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/RestKit/Tests/Vendor/OCHamcrest\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HackeratiDay2SampleCode/HackeratiDay2SampleCode-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"/**";
@@ -519,6 +536,10 @@
 		9C68F73715DA042500CB1A52 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/RestKit/Tests/Vendor/OCHamcrest\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HackeratiDay2SampleCode/HackeratiDay2SampleCode-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"/**";
