@@ -1,6 +1,6 @@
 //
 //  ArticleViewController.m
-//  HackeratiDay2SampleCode.
+//  HackeratiDay2SampleCode
 //
 //  Created by Rob Marano on 8/14/12.
 //  Copyright (c) 2012 Kevin Tulod. All rights reserved.
