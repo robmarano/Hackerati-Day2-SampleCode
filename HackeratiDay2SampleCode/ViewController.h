@@ -17,6 +17,7 @@
     int idx;
     
     NSString *entryUrlString;
+    NSString *entryId;
     
     IBOutlet UITextView *articleHeadline;
     IBOutlet UITextView *articleSnippet;
@@ -31,6 +32,7 @@
 @property (atomic, strong) IBOutlet UITextView *articleSnippet;
 @property (atomic, strong) IBOutlet UIImageView *articleImage;
 @property (atomic, strong) NSString *entryUrlString;
+@property (atomic, strong) NSString *entryId;
 
 // RESTKit
 - (void)requestAndLoadArticles;

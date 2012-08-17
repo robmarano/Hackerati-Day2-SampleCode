@@ -101,6 +101,7 @@
     articleHeadline.text = [currentArticle objectForKey:@"entry_headline"];
     articleSnippet.text = [currentArticle objectForKey:@"entry_title"];
     entryUrlString = [currentArticle objectForKey:@"entry_url"];
+    entryId = [currentArticle objectForKey:@"entry_id"];
     
     NSURL *url = [NSURL URLWithString:[currentArticle objectForKey:@"entry_image_large"]];
     NSData *data = [NSData dataWithContentsOfURL:url];
@@ -146,6 +147,7 @@
     if ([[segue identifier] isEqualToString:@"toModal"]) {
         ArticleViewController *articleViewController = [segue destinationViewController];
         articleViewController.currentArticleUrlString = entryUrlString;
+        articleViewController.entry_id = entryId;
     }
 }
 

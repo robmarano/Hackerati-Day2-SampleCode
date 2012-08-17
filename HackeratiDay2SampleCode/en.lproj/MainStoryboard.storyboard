@@ -97,16 +97,19 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <webView contentMode="scaleToFill" id="7ix-SU-Kbw">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="7F4-34-Yv3">
                                 <rect key="frame" x="20" y="73" width="280" height="367"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </webView>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="articleWebView" destination="7ix-SU-Kbw" id="5hr-VL-egx"/>
+                        <outlet property="articleTextView" destination="7F4-34-Yv3" id="Id1-nw-O3u"/>
                         <outlet property="testLabel" destination="JLz-fi-56k" id="10N-Hs-yd2"/>
                     </connections>
                 </viewController>
@@ -119,7 +122,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ArticleViewController.h"/>
             <relationships>
                 <relationship kind="action" name="dismissModalViewController:"/>
-                <relationship kind="outlet" name="articleWebView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="articleTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="testLabel" candidateClass="UILabel"/>
             </relationships>
         </class>

@@ -15,7 +15,9 @@
 @implementation ArticleViewController
 
 @synthesize currentArticleUrlString;
-@synthesize articleWebView;
+@synthesize entry_id;
+//@synthesize articleWebView;
+@synthesize articleTextView;
 @synthesize testLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -31,6 +33,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    // RESTKit
+    [RKClient clientWithBaseURL:[NSURL URLWithString:@"http://www.huffingtonpost.com/"]];
+
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -38,9 +44,68 @@
     NSLog(@"url: %@", currentArticleUrlString);
     testLabel.text = currentArticleUrlString;
     
-    NSURL *url = [NSURL URLWithString: currentArticleUrlString];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [articleWebView loadRequest:request];
+//    NSURL *url = [NSURL URLWithString: currentArticleUrlString];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    [articleWebView loadRequest:request];
+    
+    NSArray *keys = [NSArray arrayWithObjects:@"t", @"ftext", @"entry_ids", nil];
+    NSArray *values = [NSArray arrayWithObjects:@"entry", @"1", entry_id, nil];
+    NSDictionary *params = [NSDictionary dictionaryWithObjects:values forKeys:keys];
+//    [[RKClient sharedClient] post:@"api/" params:params delegate:self];
+    [[RKClient sharedClient] get:@"/api/" queryParameters:params delegate:self];
+    
+}
+
+- (void)requestDidStartLoad:(RKRequest *)request
+{
+    //NSLog(@"RK Request description: %@",[request description]);
+}
+
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response
+{
+    NSLog(@"Received response");
+    if ([request isGET]) {
+        // Handling GET /foo.xml
+        NSLog(@"GET");
+        if ([response isOK]) {
+            // Success! Let's take a look at the data
+            NSLog(@"Retrieved XML: %@", [response bodyAsString]);
+            if ([response isJSON]) {
+                NSError *e = nil;
+                id jsonObject = [NSJSONSerialization JSONObjectWithData:[response body] options:NSJSONReadingMutableContainers error:&e];
+                
+                NSLog(@"its probably a dictionary");
+                NSDictionary *entry = (NSDictionary *)jsonObject;
+                [self extractEntryText:entry];
+            }            
+        }
+        
+    } else if ([request isPOST]) {
+        // Handling POST /other.json
+        if ([response isJSON]) {
+            NSError *e = nil;
+            id jsonObject = [NSJSONSerialization JSONObjectWithData:[response body] options:NSJSONReadingMutableContainers error:&e];
+            
+            NSLog(@"its probably a dictionary");
+            NSDictionary *entry = (NSDictionary *)jsonObject;
+            [self extractEntryText:entry];
+        }
+        
+    } else if ([request isDELETE]) {
+        
+        // Handling DELETE /missing_resource.txt
+        if ([response isNotFound]) {
+            NSLog(@"The resource path '%@' was not found.", [request resourcePath]);
+        }
+    }
+}
+
+- (void)extractEntryText:(NSDictionary *)dic
+{
+    NSDictionary *outerdic = [dic objectForKey:@"response"];
+    NSDictionary *innerdic = [outerdic objectForKey:entry_id];
+    
+    articleTextView.text = [innerdic objectForKey:@"entry_text"];
 }
 
 - (void)viewDidUnload
