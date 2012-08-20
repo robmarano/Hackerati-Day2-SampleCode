@@ -22,6 +22,8 @@
     IBOutlet UITextView *articleHeadline;
     IBOutlet UITextView *articleSnippet;
     IBOutlet UIImageView *articleImage;
+    
+    IBOutlet UIActivityIndicatorView *bgActivityIndic;
 
 }
 
@@ -33,6 +35,7 @@
 @property (atomic, strong) IBOutlet UIImageView *articleImage;
 @property (atomic, strong) NSString *entryUrlString;
 @property (atomic, strong) NSString *entryId;
+@property (atomic, strong) IBOutlet UIActivityIndicatorView *bgActivityIndic;
 
 // RESTKit
 - (void)requestAndLoadArticles;
@@ -42,4 +45,5 @@
 - (void)userRequestsArticle:(int) number;
 - (IBAction)userIncrementsArticle:(id)sender;
 - (IBAction)userDecrementsArticle:(id)sender;
+- (void) requestImageInBackgroundWithURL:(NSURL *)url;
 @end

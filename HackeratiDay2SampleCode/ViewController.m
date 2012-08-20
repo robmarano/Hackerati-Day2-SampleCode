@@ -17,6 +17,7 @@
 @synthesize hp_entries,jsonArray;
 @synthesize articleHeadline,articleImage,articleSnippet;
 @synthesize entryUrlString;
+@synthesize bgActivityIndic;
 
 - (void)viewDidLoad
 {
@@ -93,6 +94,11 @@
     }
 }
 
+- (void) requestImageInBackgroundWithURL:(NSURL *)url
+{
+    
+}
+
 - (void)userRequestsArticle:(int) number
 {
     NSLog(@"Requesting: %i",idx);
@@ -102,10 +108,24 @@
     articleSnippet.text = [currentArticle objectForKey:@"entry_title"];
     entryUrlString = [currentArticle objectForKey:@"entry_url"];
     entryId = [currentArticle objectForKey:@"entry_id"];
-    
+    NSLog(@"%@",entryUrlString);
+    [bgActivityIndic startAnimating];
+
     NSURL *url = [NSURL URLWithString:[currentArticle objectForKey:@"entry_image_large"]];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    articleImage.image = [UIImage imageWithData:data];
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+    
+    dispatch_async(queue, ^{
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            articleImage.image = [UIImage imageWithData:data];
+            [bgActivityIndic stopAnimating];
+        });
+    });
+    
+//    NSURL *url = [NSURL URLWithString:[currentArticle objectForKey:@"entry_image_large"]];
+//    NSData *data = [NSData dataWithContentsOfURL:url];
+//    articleImage.image = [UIImage imageWithData:data];
 }
 
 - (IBAction)userIncrementsArticle:(id)sender
