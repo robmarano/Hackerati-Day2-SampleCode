@@ -14,8 +14,8 @@
     NSString *currentArticleUrlString;
     NSString *entry_id;
     
-//    IBOutlet UIWebView *articleWebView;
-    IBOutlet UITextView *articleTextView;
+    IBOutlet UIWebView *articleWebView;
+//    IBOutlet UITextView *articleTextView;
     IBOutlet UILabel *testLabel;
 }
 
@@ -26,8 +26,8 @@
 
 @property (atomic, strong) NSString *currentArticleUrlString;
 @property (atomic, strong) NSString *entry_id;
-//@property (atomic, strong) IBOutlet UIWebView *articleWebView;
-@property (atomic, strong) IBOutlet UITextView *articleTextView;
+@property (atomic, strong) IBOutlet UIWebView *articleWebView;
+//@property (atomic, strong) IBOutlet UITextView *articleTextView;
 @property (atomic, strong) IBOutlet UILabel *testLabel;
 
 @end

@@ -16,8 +16,8 @@
 
 @synthesize currentArticleUrlString;
 @synthesize entry_id;
-//@synthesize articleWebView;
-@synthesize articleTextView;
+@synthesize articleWebView;
+//@synthesize articleTextView;
 @synthesize testLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -105,7 +105,10 @@
     NSDictionary *outerdic = [dic objectForKey:@"response"];
     NSDictionary *innerdic = [outerdic objectForKey:entry_id];
     
-    articleTextView.text = [innerdic objectForKey:@"entry_text"];
+    NSString *myText = [NSString stringWithFormat:@"<html><body>%@</body></html>",[innerdic objectForKey:@"entry_text"]];
+    NSLog(myText);
+//    articleTextView.text = [innerdic objectForKey:@"entry_text"];
+    [articleWebView loadHTMLString:myText baseURL:nil];
 }
 
 - (void)viewDidUnload

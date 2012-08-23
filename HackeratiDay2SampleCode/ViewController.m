@@ -101,7 +101,7 @@
     
     NSData *data = [NSData dataWithContentsOfURL:url];
     
-    [(ViewController *) [sender clearBackgroundThreadsWithImage:data];
+    [(ViewController *) sender clearBackgroundThreadsWithImage:data];
 }
 
 - (void) clearBackgroundThreadsWithImage:(NSData *)data
