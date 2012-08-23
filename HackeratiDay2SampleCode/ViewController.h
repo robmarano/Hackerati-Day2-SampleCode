@@ -45,5 +45,6 @@
 - (void)userRequestsArticle:(int) number;
 - (IBAction)userIncrementsArticle:(id)sender;
 - (IBAction)userDecrementsArticle:(id)sender;
-- (void) requestImageInBackgroundWithURL:(NSURL *)url;
+- (void) requestImageInBackgroundWithURL:(NSArray *)params;
+- (void) clearBackgroundThreadsWithImage:(NSData *)data;
 @end

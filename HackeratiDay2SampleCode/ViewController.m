@@ -94,9 +94,26 @@
     }
 }
 
-- (void) requestImageInBackgroundWithURL:(NSURL *)url
+- (void) requestImageInBackgroundWithURL:(NSArray *)params
 {
+    id sender = [params objectAtIndex:0];
+    NSURL *url = [params objectAtIndex:1];
     
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    
+    [(ViewController *) [sender clearBackgroundThreadsWithImage:data];
+}
+
+- (void) clearBackgroundThreadsWithImage:(NSData *)data
+{
+    if (![NSThread isMainThread])
+    {
+        [self performSelectorOnMainThread:@selector(clearBackgroundThreadsWithImage:) withObject:data waitUntilDone:NO];
+    }
+    else
+     {
+         articleImage.image = [UIImage imageWithData:data];
+     }
 }
 
 - (void)userRequestsArticle:(int) number
@@ -109,19 +126,27 @@
     entryUrlString = [currentArticle objectForKey:@"entry_url"];
     entryId = [currentArticle objectForKey:@"entry_id"];
     NSLog(@"%@",entryUrlString);
-    [bgActivityIndic startAnimating];
-
+    
     NSURL *url = [NSURL URLWithString:[currentArticle objectForKey:@"entry_image_large"]];
     
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+    [bgActivityIndic startAnimating];
     
-    dispatch_async(queue, ^{
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            articleImage.image = [UIImage imageWithData:data];
-            [bgActivityIndic stopAnimating];
-        });
-    });
+    NSArray *params = [NSArray arrayWithObjects:self, url, nil];
+
+    NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(requestImageInBackgroundWithURL:) object:params];
+    
+    NSOperationQueue *opQueue = [[NSOperationQueue alloc] init];
+    [opQueue addOperation:operation];
+    
+//    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+//    
+//    dispatch_async(queue, ^{
+//        NSData *data = [NSData dataWithContentsOfURL:url];
+//        dispatch_sync(dispatch_get_main_queue(), ^{
+//            articleImage.image = [UIImage imageWithData:data];
+//            [bgActivityIndic stopAnimating];
+//        });
+//    });
     
 //    NSURL *url = [NSURL URLWithString:[currentArticle objectForKey:@"entry_image_large"]];
 //    NSData *data = [NSData dataWithContentsOfURL:url];

@@ -1,3 +1,6 @@
 [submodule "RestKit"]
 	path = RestKit
 	url = git://github.com/RestKit/RestKit.git
+[submodule "HuffPoAPI"]
+	path = HuffPoAPI
+	url = git://github.com/thehackerati/HuffPoAPI.git
